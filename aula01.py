@@ -1,21 +1,28 @@
-from flask import Flask
+from flask import Flask, render_template
 
-meu_site = Flask(__name__)
 
-@meu_site.route("/")
-def inicio():
-    return "Olá! Meu primeiro projeto Flask!"
+app_Projeto = Flask(__name__, template_folder='templates')
+#cria o objeto da aplicação
 
-@meu_site.route('/contato')
+@app_Projeto.route("/")
+def homepage():
+    return render_template("homepage.html")
+
+@app_Projeto.route("/contato")
 def contato():
-    return 'numero: 69984258688'
+    return render_template("contato.html")
 
-def saudacoes(nome):
-    return f'ola {nome}.'
+@app_Projeto.route("/index")
+def indice():
+    return render_template ("index.html")
+    
 
-@meu_site.route('/saudacao/<nome>')
-def saudacao (nome):
-    return saudacoes(nome)
+@app_Projeto.route("/usuario")
+def dados_usuario():
+    nome_usuario ="jhennyfer"
+    dados_usu = {"profissao": "Tecnica em informatica"}
+    return render_template("usuario.html", nome_usuario, dados_usu)
 
-meu_site.run(port=8000)
 
+if __name__ == "__main__":
+    app_Projeto.run(port= 8000)
