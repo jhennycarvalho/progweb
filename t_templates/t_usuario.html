@@ -1,9 +1,12 @@
-<body>
-<h2>Olá, {{ nome_usuario }}</h2>
+{% extends 'base.html' %}
+
+{%block conteudo%}
+
+h2>Olá, {{ nome_usuario }}</h2>
 
     <p>
         <b>profissão:</b> {{dados['profissao']}} <br/>
         <b>Disciplina:</b> {{dados['disciplina']}} <br/>
 
     </p>
-</body>
+{% endblock%}

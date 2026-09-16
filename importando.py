@@ -21,8 +21,10 @@ def indice():
 def dados_usuario():
     nome_usuario ="jhennyfer"
     dados_usu = {"profissao": "Tecnica em informatica"}
-    return render_template("usuario.html", nome_usuario, dados_usu)
+    return render_template("usuario.html", nome_usuario=nome_usuario, dados=dados_usu)
+
+
 
 
 if __name__ == "__main__":
-    app_Projeto.run(port= 8000)
+    app_Projeto.run(debug=True)
