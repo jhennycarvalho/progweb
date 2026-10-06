@@ -1,7 +1,30 @@
 {% extends 'base.html' %}
+{% block conteudo %}
+<section class="hero">
+    <span class="eyebrow">Aplicação Flask · Git + GitHub</span>
+    <h1>Olá, <span>{{ nome }}</span>.<br>Seu projeto web ganhou uma nova cara.</h1>
+    <p>Desenvolvido para consolidar conceitos de rotas, renderização com Jinja2, controle de acesso e controle de versão no GitHub.</p>
+    <div class="actions">
+        <a class="btn" href="{{ url_for('login') }}">Entrar no sistema →</a>
+        <a class="btn btn-secondary" href="{{ url_for('dados_usuario') }}">Ver perfil</a>
+    </div>
+</section>
 
-{%block conteudo%}
-
-<h2>Seja bem vindo {{nome}}</h2>
-
-{% endblock%}
+<section class="cards">
+    <article class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Flask</h3>
+        <p>Gerenciamento limpo e eficiente de rotas e requisições no backend com Python.</p>
+    </article>
+    <article class="card">
+        <div class="card-icon">◈</div>
+        <h3>Jinja2</h3>
+        <p>Reutilização de layout centralizada no <strong>base.html</strong> para garantir padronização visual.</p>
+    </article>
+    <article class="card">
+        <div class="card-icon">⌘</div>
+        <h3>GitHub</h3>
+        <p>Rastreamento completo do progresso do código por meio de ramificações e commits registrados.</p>
+    </article>
+</section>
+{% endblock %}

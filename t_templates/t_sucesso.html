@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="page-card success-box">
+    <div class="success-icon">✓</div>
+    <span class="page-kicker">Sessão iniciada</span>
+    <h2>Autenticado com sucesso!</h2>
+    <p>Credenciais validadas sem problemas. Que bom ter você de volta, <strong>{{ usuario }}</strong>.</p>
+    <div class="actions" style="justify-content:center">
+        <a class="btn" href="{{ url_for('dados_usuario') }}">Visualizar perfil</a>
+        <a class="btn btn-secondary" href="{{ url_for('index') }}">Página inicial</a>
+    </div>
+</section>
+{% endblock %}

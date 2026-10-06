@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<section class="page-card form-card">
+    <span class="page-kicker">Autenticação</span>
+    <h2>Acessar conta</h2>
+    <p>Informe suas credenciais para prosseguir na plataforma.</p>
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+    <div class="mensagens-flash">
+        <ul>{% for msg in mensagens %}<li>{{ msg }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+
+    <form action="{{ url_for('autenticar') }}" method="POST" id="formLogin">
+        <div class="form-group">
+            <label for="nome_usuario">Usuário</label>
+            <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Insira seu login" autocomplete="username" required>
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Insira sua senha" autocomplete="current-password" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit">Iniciar sessão</button>
+        </div>
+    </form>
+
+    <form action="{{ url_for('cadastro_usuario') }}" method="POST" onsubmit="copiarUsuarioCadastro()">
+        <input type="hidden" name="nome_usuario" id="nome_usuario_cadastro">
+        <div class="form-actions" style="margin-top:10px">
+            <button class="btn-secondary" type="submit">Registrar nova conta</button>
+        </div>
+    </form>
+</section>
+
+<script>
+function copiarUsuarioCadastro() {
+    document.getElementById("nome_usuario_cadastro").value = document.getElementById("nome_usuario").value;
+}
+</script>
+{% endblock %}

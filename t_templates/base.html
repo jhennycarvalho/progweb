@@ -1,23 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do usuario</title>
+    <meta name="theme-color" content="#080b14">
+    <title>Atividade Flask — GitHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
 </head>
 <body>
-    <img src="{{ url_for ('static', filename ='img/lirios.jpg' )}}" alt="">
-    <br>
-    <nav>
-        <ul>
-            <li> <a href="{{ url_for ('index')}}">Inicio</a></li>
-            
-            <li> <a href="{{ url_for ('perfil' )}}">Contatos</a></li>
-           
-        </ul>
-    </nav>
+    <div class="app-shell">
+        <header class="site-header">
+            <a class="brand" href="{{ url_for('index') }}">
+                <img class="imgquadrada" src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo Flask">
+                <span class="brand-copy">
+                    <span class="brand-title">FlaskLab</span>
+                    <span class="brand-subtitle">Desenvolvimento Web III</span>
+                </span>
+            </a>
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Início</a></li>
+                    <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                    <li><a href="{{ url_for('dados_usuario') }}">Perfil</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    {% block conteudo %}
-    {% endblock %00}
-</body> 
+        <main>
+            {% block conteudo %}{% endblock %}
+        </main>
+
+        <footer>
+            <span><strong>FlaskLab</strong> · Projeto acadêmico</span>
+            <span>Desenvolvido por Jhennyfér Carvalho — Desenvolvimento Web III</span>
+        </footer>
+    </div>
+</body>
 </html>

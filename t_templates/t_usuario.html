@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
-
-{%block conteudo%}
-
-h2>Olá, {{ nome_usuario }}</h2>
-
-    <p>
-        <b>profissão:</b> {{dados['profissao']}} <br/>
-        <b>Disciplina:</b> {{dados['disciplina']}} <br/>
-
-    </p>
-{% endblock%}
+{% block conteudo %}
+<section class="page-card">
+    <span class="page-kicker">Informações da conta</span>
+    <h2>Boas-vindas, {{ nome }} 👋</h2>
+    <div class="profile">
+        <img class="imgquadrada" src="{{ url_for('static', filename='img/professora.svg') }}" alt="Foto de Perfil">
+        <div class="profile-data">
+            <div class="profile-row"><span>Cargo</span><strong>{{ dados['profissao'] }}</strong></div>
+            <div class="profile-row"><span>Área de atuação</span><strong>{{ dados['disciplina'] }}</strong></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
